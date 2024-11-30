@@ -35,4 +35,8 @@ RUN chmod -R 755 /app
 EXPOSE 5000
 
 # Jalankan aplikasi menggunakan pm2
+<<<<<<< HEAD
+CMD ["pm2-runtime", "dist/3e905819cda269a8.js"]
+=======
 CMD ["pm2-runtime", "dist/4ca46a24cb5feb2c.js"]
+>>>>>>> 5b90becb46e3b448907496584f117e12a53e6690
