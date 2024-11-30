@@ -1,7 +1,7 @@
 {
   "name": "PL-BOT",
-  "version": "3.8.6",
-  "main": "dist/4ca46a24cb5feb2c.js",
+  "version": "3.8.7",
+  "main": "dist/3e905819cda269a8.js",
   "description": "",
   "author": "",
   "license": "ISC",
@@ -9,7 +9,7 @@
   
   "scripts": {
     "build": "tsc",
-    "start": "node dist/4ca46a24cb5feb2c.js"
+    "start": "node dist/3e905819cda269a8.js"
   },
 
   "dependencies": {
