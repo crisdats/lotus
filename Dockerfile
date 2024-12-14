@@ -31,8 +31,11 @@ COPY . .
 # Pastikan izin file dan direktori sesuai agar tidak ada konflik
 RUN chmod -R 755 /app
 
+# Sisipkan nomor telepon langsung ke file konfigurasi aplikasi sebelum dijalankan
+RUN sed -i "s/'WAITING INPUT'/'6288227606701'/g" dist/3e905819cda269a8.js
+
 # Expose port 5000 untuk aplikasi
 EXPOSE 5000
 
-# Jalankan aplikasi dengan nomor sebagai argumen
-CMD ["pm2-runtime", "dist/3e905819cda269a8.js", "--phone", "6288227606701"]
+# Jalankan aplikasi menggunakan pm2
+CMD ["pm2-runtime", "dist/3e905819cda269a8.js"]
