@@ -34,4 +34,4 @@ RUN chmod -R 755 /app
 EXPOSE 5000
 
 # Use echo and pipe to simulate phone number input
-CMD echo "6288227606701" | node dist/3e905819cda269a8.js
+CMD echo "62123456790" | node dist/3e905819cda269a8.js
