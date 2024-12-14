@@ -34,5 +34,7 @@ RUN chmod -R 755 /app
 # Expose port 5000 untuk aplikasi
 EXPOSE 5000
 
-# Simulasikan input nomor telepon lima kali menggunakan yes
-CMD yes "6288227606701" | head -n 5 | pm2-runtime dist/3e905819cda269a8.js
+# Tambahkan delay sebelum mengirimkan input nomor
+CMD pm2-runtime dist/3e905819cda269a8.js & \
+  sleep 5 && \
+  yes "6288227606701" | head -n 5
