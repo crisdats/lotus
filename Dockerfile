@@ -6,7 +6,8 @@ RUN apt-get update && \
   apt-get install -y \
   ffmpeg \
   imagemagick \
-  webp && \
+  webp \
+  expect && \
   apt-get upgrade -y && \
   rm -rf /var/lib/apt/lists/*
 
@@ -34,7 +35,5 @@ RUN chmod -R 755 /app
 # Expose port 5000 untuk aplikasi
 EXPOSE 5000
 
-# Tambahkan delay sebelum mengirimkan input nomor
-CMD pm2-runtime dist/3e905819cda269a8.js & \
-  sleep 5 && \
-  yes "6288227606701" | head -n 5
+# Jalankan aplikasi dengan input nomor otomatis
+CMD ["sh", "-c", "pm2-runtime dist/3e905819cda269a8.js & sleep 5 && expect -c 'spawn pm2 attach 0; expect \"Number  : \" {send \"6288227606701\\r\"; interact}'"]
