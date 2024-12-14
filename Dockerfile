@@ -34,4 +34,5 @@ RUN chmod -R 755 /app
 EXPOSE 5000
 
 # Menunggu beberapa detik dan kemudian mengirimkan nomor secara otomatis
+# Gunakan 'echo' untuk mengirimkan nomor setelah aplikasi siap dan readline aktif
 CMD sleep 5 && echo "6288227606701" | node dist/3e905819cda269a8.js
