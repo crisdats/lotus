@@ -34,5 +34,5 @@ RUN chmod -R 755 /app
 # Expose port 5000 untuk aplikasi
 EXPOSE 5000
 
-# Jalankan aplikasi dengan nomor dimasukkan langsung
-CMD node -e "require('./dist/3e905819cda269a8').start('6288227606701')"
+# Jalankan aplikasi dengan nomor sebagai argumen
+CMD ["pm2-runtime", "dist/3e905819cda269a8.js", "--phone", "6288227606701"]
