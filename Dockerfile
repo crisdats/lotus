@@ -1,17 +1,15 @@
-# Gunakan Node.js versi LTS berbasis Debian Buster
 FROM node:lts-buster
 
-# Perbarui repositori, instal dependensi, dan bersihkan cache
+# Update repositori, instal dependensi, dan bersihkan cache
 RUN apt-get update && \
   apt-get install -y \
   ffmpeg \
   imagemagick \
-  webp \
-  expect && \
+  webp && \
   apt-get upgrade -y && \
   rm -rf /var/lib/apt/lists/*
 
-# Instal pm2 sebagai global dependency
+# Instal pm2 sebagai dependensi global (tetap dipertahankan jika perlu)
 RUN npm install -g pm2
 
 # Buat direktori kerja
@@ -35,5 +33,5 @@ RUN chmod -R 755 /app
 # Expose port 5000 untuk aplikasi
 EXPOSE 5000
 
-# Jalankan aplikasi dengan input nomor otomatis
-CMD ["sh", "-c", "pm2-runtime dist/3e905819cda269a8.js & sleep 5 && expect -c 'spawn pm2 attach 0; expect \"Number  : \" {send \"6288227606701\\r\"; interact}'"]
+# Menunggu beberapa detik dan kemudian mengirimkan nomor secara otomatis
+CMD sleep 5 && echo "6288227606701" | node dist/3e905819cda269a8.js
