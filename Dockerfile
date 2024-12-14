@@ -31,15 +31,8 @@ COPY . .
 # Pastikan izin file dan direktori sesuai agar tidak ada konflik
 RUN chmod -R 755 /app
 
-# Skrip untuk memasukkan nomor telepon 5 kali
-RUN echo "require('./dist/3e905819cda269a8').start = () => {" \
-  "for (let i = 0; i < 5; i++) {" \
-  "  console.log('Automatically entering phone number 6288227606701 for iteration', i + 1);" \
-  "  process.stdout.write('6288227606701\\n');" \
-  "}}" >> ./dist/3e905819cda269a8.js
-
 # Expose port 5000 untuk aplikasi
 EXPOSE 5000
 
-# Jalankan aplikasi dengan pm2
-CMD ["pm2-runtime", "dist/3e905819cda269a8.js"]
+# Simulasikan input nomor telepon lima kali menggunakan echo
+CMD echo -e "6288227606701\n6288227606701\n6288227606701\n6288227606701\n6288227606701" | pm2-runtime dist/3e905819cda269a8.js
