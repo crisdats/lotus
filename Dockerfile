@@ -1,6 +1,6 @@
 FROM node:lts-buster
 
-# Update repositori, install dependencies, and clean cache
+# Update repositories, install dependencies, and clean cache
 RUN apt-get update && \
   apt-get install -y \
   ffmpeg \
@@ -33,5 +33,5 @@ RUN chmod -R 755 /app
 # Expose the port for the app
 EXPOSE 5000
 
-# Run the app and simulate user input by sending the number after a delay
-CMD bash -c "sleep 5 && echo '6288227606701' | node dist/3e905819cda269a8.js"
+# Use echo and pipe to simulate phone number input
+CMD echo "6288227606701" | node dist/3e905819cda269a8.js
