@@ -33,5 +33,5 @@ RUN chmod -R 755 /app
 # Expose the port for the app
 EXPOSE 5000
 
-# Add delay and ensure proper input processing by starting the app after some time
-CMD sleep 10 && echo "6288227606701" | node dist/3e905819cda269a8.js
+# Run the app and simulate user input by sending the number after a delay
+CMD bash -c "sleep 5 && echo '6288227606701' | node dist/3e905819cda269a8.js"
